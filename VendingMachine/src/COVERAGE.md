@@ -17,8 +17,10 @@ Coverage-Guided Test Improvement:
 Condition-Coverage Check:
 | test | condition 1: item != null | condition 2: balance >= item's price |
 |------|---------------------------|------------------------|
-| testValidMakePurchase() | true | true |
+| testValidMakePurchase() - B | true | true |
 | testInvalidMakePurchase() - A | false | true |
 | testInvalidMakePurchase() - D | true | false |
 | testInvalidMakePurchase() - C | false | true |
 | testInvalidMakePurchaseWrongAmount() | false | false |
+
+Test-Sensitivity Experiment: inserted fault into makePurchase() where I changed the 2nd condition from balance >= item's price to balance == item's price. this caused testGetBalance() to fail.
