@@ -33,14 +33,25 @@ public class VendingMachineTest {
     }
 
     @Test
+    void testInvalidItemIntialization() {
+        assertThrows(VendingMachineException.class, () -> new VendingMachineItem("Fanta", -1.5));
+    }
+
+    @Test
+    void testGetName() {
+        assertEquals("Coke", coke.getName());
+    }
+
+    @Test
     void testValidAddItem() {
         vm.addItem(coke, "A");
         assertEquals(coke, vm.getItem("A"));
     }
 
-    @Test
-    void testInvalidAddItem() {
-        assertThrows(VendingMachineException.class, () -> vm.addItem(coke, "b"));
+    @ParameterizedTest
+    @ValueSource(strings = {"b", "B"})
+    void testInvalidAddItem(String item) {
+        assertThrows(VendingMachineException.class, () -> vm.addItem(coke, item));
     }
 
     /*
@@ -92,12 +103,18 @@ public class VendingMachineTest {
     }
 
     @ParameterizedTest 
-    @ValueSource(strings = {"A", "B", "C"})
+    @ValueSource(strings = {"A", "D"})
     void testInvalidMakePurchase(String product) {
-        vm.addItem(pepsi, "C");
-        vm.removeItem("C");
+        vm.addItem(drpepper, "D");
         vm.insertMoney(1.5);
         assertFalse(vm.makePurchase(product));
+    }
+
+    @Test
+    void testInvalidMakePurchaseWrongAmount() {
+        vm.addItem(coke, "C");
+        vm.removeItem("C");
+        assertFalse(vm.makePurchase("C"));
     }
 
     @Test
