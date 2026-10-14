@@ -1,4 +1,3 @@
-/*
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -30,8 +29,8 @@ public class VendingMachineItemTest {
         assertEquals("Price cannot be less than zero", exception.getMessage());
     }
 }
-*/
 
+/*
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -51,3 +50,4 @@ public class VendingMachineItemTest {
         assertEquals("Price cannot be less than zero", exception.getMessage());
     }
 }
+*/

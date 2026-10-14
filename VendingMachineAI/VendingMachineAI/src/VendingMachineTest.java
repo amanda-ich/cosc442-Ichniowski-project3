@@ -1,4 +1,3 @@
-/*
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -169,8 +168,8 @@ public class VendingMachineTest {
         assertEquals(0.0, machine.getBalance(), 0.000001);
     }
 }
-*/
 
+/*
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -257,3 +256,4 @@ public class VendingMachineTest {
         assertEquals(0.0, machine.getBalance(), 0.000001);
     }
 }
+*/
